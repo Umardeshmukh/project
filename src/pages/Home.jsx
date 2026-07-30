@@ -1,19 +1,20 @@
-import React from 'react'
-import Video from '../components/home/video'
+import React, { useRef } from 'react'
+import Video from '../components/home/Video'
 import HomeHeroText from '../components/home/HomeHeroText'
-import HomebottumText from '../components/home/HomebottumText'
+import HomeBottomText from '../components/home/HomeBottomText'
+
 
 const Home = () => {
+
+
   return (
-    <div>
-      <div className=' h-screen w-screen fixed flex-col'>
-          <Video/>
-
+    <div className='text-white'>
+      <div className='h-screen w-screen fixed'>
+        <Video />
       </div>
-      <div className='h-screen w-screen relative flex-col align-'>
-        <HomeHeroText/>
-        <HomebottumText/>
-
+      <div className='h-screen w-screen relative pb-5 overflow-hidden flex flex-col justify-between'>
+        <HomeHeroText />
+        <HomeBottomText />
       </div>
     </div>
   )
