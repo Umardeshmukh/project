@@ -59,7 +59,7 @@ const Agence = () => {
   return (
     <div className='parent'>
       <div id='page1' className='py-1 '>
-        <div ref={imageDivRef} className='absolute overflow-hidden lg:h-[20vw] h-[30vw] lg:rounded-3xl rounded-xl lg:w-[15vw] w-[25vw] lg:top-96 -top-80 lg:left-[30vw] left-[30vw]'>
+        <div ref={imageDivRef} className='absolute overflow-hidden lg:h-[20vw] h-[30vw] lg:rounded-3xl rounded-xl lg:w-[15vw] w-[25vw] lg:top-96 -top-80 lg:left-[30.5vw] left-[30vw]'>
           <img ref={imageRef} className='h-full object-cover w-full' src="https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg" alt="" />
         </div>
         <div className='relative font-[font2]'>
@@ -75,7 +75,7 @@ const Agence = () => {
       <div id='page2' className=" h-screen">
 
       </div>
-    </div> 
+    </div>
   )
 }
 
