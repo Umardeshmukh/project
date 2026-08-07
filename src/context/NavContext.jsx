@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-export const NavbarContext = createContext()
-export const NavbarColorContext = createContext()
+const NavbarContext = createContext()
+const NavbarColorContext = createContext()
 
 const NavContext = ({ children }) => {
 
@@ -32,3 +32,4 @@ const NavContext = ({ children }) => {
 }
 
 export default NavContext
+export { NavbarContext, NavbarColorContext }
