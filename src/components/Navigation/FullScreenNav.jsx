@@ -57,27 +57,27 @@ const FullScreenNav = () => {
                 display: 'block',
                 duration: 0
             })
-            .to('.stairing', {
-                height: '100%',
-                duration: 0.6,
-                ease: 'power3.inOut',
-                stagger: {
-                    amount: -0.3
-                }
-            }, '+=0.1')
-            .to('.link', {
-                opacity: 1,
-                rotateX: 0,
-                duration: 0.5,
-                ease: 'power3.out',
-                stagger: {
-                    amount: 0.3
-                }
-            }, '-=0.2')
-            .to('.navlink', {
-                opacity: 1,
-                duration: 0.3
-            }, '-=0.3')
+                .to('.stairing', {
+                    height: '100%',
+                    duration: 0.6,
+                    ease: 'power3.inOut',
+                    stagger: {
+                        amount: -0.3
+                    }
+                }, '+=0.1')
+                .to('.link', {
+                    opacity: 1,
+                    rotateX: 0,
+                    duration: 0.5,
+                    ease: 'power3.out',
+                    stagger: {
+                        amount: 0.3
+                    }
+                }, '-=0.2')
+                .to('.navlink', {
+                    opacity: 1,
+                    duration: 0.3
+                }, '-=0.3')
         } else {
             const tl = gsap.timeline()
             tl.to('.link', {
@@ -89,22 +89,22 @@ const FullScreenNav = () => {
                     amount: 0.1
                 }
             })
-            .to('.stairing', {
-                height: 0,
-                duration: 0.4,
-                ease: 'power3.inOut',
-                stagger: {
-                    amount: 0.1
-                }
-            }, '-=0.2')
-            .to('.navlink', {
-                opacity: 0,
-                duration: 0.2
-            }, '-=0.4')
-            .to(fullScreenRef.current, {
-                display: 'none',
-                duration: 0
-            })
+                .to('.stairing', {
+                    height: 0,
+                    duration: 0.4,
+                    ease: 'power3.inOut',
+                    stagger: {
+                        amount: 0.1
+                    }
+                }, '-=0.2')
+                .to('.navlink', {
+                    opacity: 0,
+                    duration: 0.2
+                }, '-=0.4')
+                .to(fullScreenRef.current, {
+                    display: 'none',
+                    duration: 0
+                })
         }
     }, { dependencies: [navOpen], scope: fullScreenRef })
 
@@ -138,12 +138,22 @@ const FullScreenNav = () => {
                             </svg>
                         </div>
                     </div>
-                    <div onClick={() => {
-                        setNavOpen(false)
-                    }} className='lg:h-32 h-20 w-20 lg:w-32 relative cursor-pointer'>
-                        <div className='lg:h-44 h-28 lg:w-1 w-0.5 -rotate-45 origin-top absolute bg-[#D3FD50]'></div>
-                        <div className='lg:h-44 h-28 lg:w-1 w-0.5 right-0 rotate-45 origin-top absolute bg-[#D3FD50]'></div>
-                    </div>
+                    {/* Animated Cross for close */}
+                    <div
+  onClick={() => setNavOpen(false)}
+  className="relative h-20 w-20 cursor-pointer flex items-center justify-center"
+>
+  <div
+    className={`absolute w-0.5 h-full bg-[#D3FD50] transition-transform duration-300 ${
+      navOpen ? "rotate-45" : "rotate-0"
+    }`}
+  />
+  <div
+    className={`absolute w-0.5 h-full bg-[#D3FD50] transition-transform duration-300 ${
+      navOpen ? "-rotate-45" : "rotate-0"
+    }`}
+  />
+</div>
                 </div>
                 <div className='py-36'>
                     {NAV_LINKS.map((link, index) => (
@@ -151,11 +161,10 @@ const FullScreenNav = () => {
                             key={link.title}
                             to={link.path}
                             onClick={() => setNavOpen(false)}
-                            className={`link group origin-top relative border-white ${
-                                index === NAV_LINKS.length - 1 ? 'border-y' : 'border-t'
-                            } block overflow-hidden`}
+                            className={`link group origin-top relative border-white ${index === NAV_LINKS.length - 1 ? 'border-y' : 'border-t'
+                                } block overflow-hidden`}
                         >
-                            <h1 className='font-[font2] text-5xl lg:text-[8vw] text-center lg:leading-[0.8] lg:pt-10 pt-3 uppercase'>
+                            <h1 className='font-[font2]  text-5xl lg:text-[8vw] text-center lg:leading-[0.8] lg:pt-10 pt-3 uppercase'>
                                 {link.title}
                             </h1>
                             <div className='moveLink absolute top-0 left-0 w-full h-full text-black flex flex-row flex-nowrap items-center bg-[#D3FD50] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out pointer-events-none overflow-hidden'>
@@ -163,21 +172,21 @@ const FullScreenNav = () => {
                                     <h2 className='whitespace-nowrap font-[font2] lg:text-[8vw] text-5xl text-center lg:leading-[0.8] lg:pt-10 pt-4 uppercase'>
                                         TO SEE EVERYTHING
                                     </h2>
-                                    <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[0]} alt="" />
+                                    <img className=' h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[0]} alt="" />
                                     <h2 className='whitespace-nowrap font-[font2] lg:text-[8vw] text-5xl text-center lg:leading-[0.8] lg:pt-10 pt-4 uppercase'>
                                         TO SEE EVERYTHING
                                     </h2>
-                                    <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[1]} alt="" />
+                                    <img className=' h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[1]} alt="" />
                                 </div>
                                 <div className='moveX flex shrink-0 items-center gap-4'>
                                     <h2 className='whitespace-nowrap font-[font2] lg:text-[8vw] text-5xl text-center lg:leading-[0.8] lg:pt-10 pt-4 uppercase'>
                                         TO SEE EVERYTHING
                                     </h2>
-                                    <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[0]} alt="" />
+                                    <img className=' h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[0]} alt="" />
                                     <h2 className='whitespace-nowrap font-[font2] lg:text-[8vw] text-5xl text-center lg:leading-[0.8] lg:pt-10 pt-4 uppercase'>
                                         TO SEE EVERYTHING
                                     </h2>
-                                    <img className='lg:h-36 h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[1]} alt="" />
+                                    <img className=' h-14 rounded-full shrink-0 lg:w-96 w-32 object-cover' src={link.images[1]} alt="" />
                                 </div>
                             </div>
                         </Link>
