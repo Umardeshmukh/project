@@ -119,7 +119,7 @@ const FullScreenNav = () => {
     }, { scope: fullScreenRef })
 
     return (
-        <div ref={fullScreenRef} id='fullscreennav' className='fullscreennav hidden text-white overflow-hidden h-screen w-full z-50 absolute'>
+        <div ref={fullScreenRef} id='fullscreennav'  className='fullscreennav hidden text-white overflow-hidden h-screen w-full ] z-50 absolute'>
             <div className='h-screen w-full fixed'>
                 <div className='h-full w-full flex'>
                     <div className='stairing h-full w-1/5 bg-black'></div>
@@ -155,7 +155,7 @@ const FullScreenNav = () => {
   />
 </div>
                 </div>
-                <div className='py-36'>
+                <div className='py-20  '>
                     {NAV_LINKS.map((link, index) => (
                         <Link
                             key={link.title}
